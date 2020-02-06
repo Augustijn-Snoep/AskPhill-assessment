@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+// Typography styling
+h1,h2,h3,h4,h5,h6,p,span,blockquote,em,ul,li {
+	margin: 0;
+	padding: 0;
+}
+
+// Text styling
+.text-color-primary {
+	color: $text-primary;
+}
+
+.text-color-secondary {
+	color: $text-secondary;
+}
+
+.lh-s {
+	line-height: 1.5;
+}

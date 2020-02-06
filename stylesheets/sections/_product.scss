@@ -1,0 +1,58 @@
+.products {
+    // Product link
+    &__link {
+        text-decoration: none;
+    }
+
+    // Product tagname
+    &__tag {
+        display: inline-block;
+    }
+
+    // Product slider
+    &__swiper {
+        height: auto;
+        padding: 0 50px;
+    }
+
+    // Product single slide
+    &__slide {
+        position: relative;
+        color: $text-primary;
+        min-height: 300px;
+
+        // Product image
+        &--image {
+            @include cover;
+            transition: all .3s;
+
+            &:hover {
+                opacity: .75;
+            }
+        }
+
+        // Product content
+        &--content {
+            margin-top: 12px;
+
+            h4 {
+                font-size: 16px;
+            }
+        }
+    }
+
+    // Product slider scrollbar
+    &__scrollbar {
+        display: none;
+
+        @media (min-width: 992px) {
+            width: calc(66.66% - 96px)!important;
+            margin: 30px auto 10px;
+            display: block;
+            position: relative!important;
+            left: inherit;
+            bottom: inherit;
+            background: $light-grey;
+        }
+    }
+}

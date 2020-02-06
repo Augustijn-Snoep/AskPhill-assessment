@@ -1,0 +1,15 @@
+{% comment %}Product wrapper{% endcomment %}
+<a class="products__link" href="{{ product_item.url }}">
+    {% if product_item.featured_image %}
+        <img class="products__slide--image" src="{{ product_item.featured_image.src | img_url: '1000x1000', crop: 'center' }}" alt="{{ product.featured_image.alt | escape }}">
+    {% endif %}
+
+    {% comment %}Product content{% endcomment %}
+    <div class="products__slide--content">
+        <h4 class="text-color-primary lh-s">{{ product_item.title }}</h4>
+        {% for tag in product_item.tags %}
+            <p class="text-color-secondary products__tag lh-s">{{ tag }}{% unless forloop.last %},{% endunless %}</p>
+        {% endfor %}
+        <p class="text-color-secondary lh-s">{{ product_item.price | money_without_trailing_zeros}}</p>
+    </div>
+</a>

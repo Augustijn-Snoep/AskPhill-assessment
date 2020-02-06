@@ -1,0 +1,54 @@
+{% schema %}
+    {
+        "name": "All Products",
+        "class": "products",
+        "blocks": [
+            {
+                "type": "products",
+                "name": "Product",
+                "settings": [
+                    {
+                    "type": "product",
+                    "id": "product",
+                    "label": "Product"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "category": "Content",
+                "name": "Products"
+            }
+        ]
+    }
+{% endschema %}
+
+{% comment %}Product slider container{% endcomment %}
+<div class="products__swiper swiper-container">
+    {% comment %}Product slider wrapper{% endcomment %}
+    <div class="swiper-wrapper">
+
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'products' %}
+
+                {% assign product_item = all_products[block.settings.product] %}
+
+                {% comment %}Product single slide{% endcomment %}
+                <div class="products__slide swiper-slide">
+                    {% comment %}Product content, you can find this in 'snippets' -> 'product-item'{% endcomment %}
+                    {% include 'product-item' %}
+                </div>
+        
+            {% endcase %}
+        {% endfor %}
+
+    </div>{% comment %}end Product slider wrapper{% endcomment %}
+
+    {% comment %}Slider scrollbar{% endcomment %}
+    <div class="products__scrollbar swiper-scrollbar"></div>
+    {% comment %}Slider buttons{% endcomment %}
+    <div class="swiper__btn swiper-button-prev"></div>
+    <div class="swiper__btn swiper-button-next"></div>
+</div>
